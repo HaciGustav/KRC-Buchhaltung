@@ -40,8 +40,8 @@ const SidebarList = () => {
           <ListItemButton href="/abmeldung" sx={{ pl: 4, ...listButtonStyle }}>
             <ListItemText primary="Abmeldung" />
           </ListItemButton>
-          <ListItemButton href="/ummeldung" sx={{ pl: 4, ...listButtonStyle }}>
-            <ListItemText primary="Ummeldung" />
+          <ListItemButton href="/aenderung" sx={{ pl: 4, ...listButtonStyle }}>
+            <ListItemText primary="Änderung" />
           </ListItemButton>
         </List>
       </Collapse>

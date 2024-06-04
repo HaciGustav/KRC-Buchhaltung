@@ -37,6 +37,7 @@ const Layout = ({ children }) => {
       <AppBar
         sx={{
           height: drawerHeight,
+          backgroundColor: "#692046",
         }}
       >
         <div
@@ -158,7 +159,7 @@ const Layout = ({ children }) => {
         <Divider />
 
         <SidebarList />
-        <Divider />
+        {/* <Divider /> */}
       </Drawer>
       <Main open={open}>
         <DrawerHeader />

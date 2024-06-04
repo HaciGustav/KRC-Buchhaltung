@@ -11,14 +11,15 @@ import {
   MenuItem,
   InputLabel,
   Select,
+  FormGroup,
+  Checkbox,
 } from "@mui/material";
 import { useState } from "react";
 
 import css from "@/styles/forms.module.css";
 import DateInput from "@/components/form-components/DateInput";
-import axios from "axios";
 
-const Anmeldung = () => {
+const Aenderung = () => {
   const [formData, setFormData] = useState({});
 
   const handleChange = (event) => {
@@ -32,14 +33,22 @@ const Anmeldung = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    try {
+      const data = await axios.post("/api/forms/anmeldung", {});
+      console.log("DATA==>", data);
+    } catch (error) {
+      console.log(error);
+    }
+
     console.log("Form Data:", formData);
   };
+
   return (
     <form className={css.container} onSubmit={handleSubmit}>
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <Typography variant="h4" gutterBottom>
-            Anmeldeformular
+            Änderung
           </Typography>
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -182,8 +191,8 @@ const Anmeldung = () => {
         <Grid item xs={12} sm={6}>
           <DateInput
             filterValue={formData}
-            required={true}
             setFilterValue={setFormData}
+            required={true}
             label="Anmeldedatum 1. Arbeitstag"
             name="firstWorkDay"
           />
@@ -203,6 +212,7 @@ const Anmeldung = () => {
           <TextField
             name="experience"
             label="Erfahrung Vorjahre"
+            required
             fullWidth
             value={formData.experience || ""}
             onChange={handleChange}
@@ -285,13 +295,27 @@ const Anmeldung = () => {
           <TextField
             name="note"
             label="Notizen"
-            required
             fullWidth
             multiline
-            rows={4}
+            rows={3}
             value={formData.note || ""}
             onChange={handleChange}
           />
+        </Grid>
+        <Grid item xs={12}>
+          <FormGroup>
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={formData.confirmation || false}
+                  onChange={handleChange}
+                  name="confirmation"
+                  required
+                />
+              }
+              label="Hiermit akzeptiere ich die DSVGO (Dateschutzerklärung)"
+            />
+          </FormGroup>
         </Grid>
 
         <Grid item xs={12}>
@@ -304,4 +328,4 @@ const Anmeldung = () => {
   );
 };
 
-export default Anmeldung;
+export default Aenderung;
