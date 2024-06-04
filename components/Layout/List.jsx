@@ -5,7 +5,10 @@ import Collapse from "@mui/material/Collapse";
 import { useState } from "react";
 import { ExpandLess, ExpandMore } from "@mui/icons-material";
 
-const listButtonStyle = { paddingBlock: 0 };
+const listButtonStyle = {
+  paddingBlock: 1,
+  boxShadow: "rgba(0, 0, 0, 0.08) 0px 1px 1px",
+};
 const SidebarList = () => {
   const [open, setOpen] = useState(true);
 
@@ -18,30 +21,27 @@ const SidebarList = () => {
       sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}
       component="nav"
     >
-      <ListItemButton sx={listButtonStyle}>
+      {/* <ListItemButton sx={listButtonStyle}>
         <ListItemText primary="Sent mail" />
       </ListItemButton>
 
       <ListItemButton sx={listButtonStyle}>
         <ListItemText primary="Drafts" />
-      </ListItemButton>
+      </ListItemButton> */}
       <ListItemButton sx={listButtonStyle} onClick={handleClick}>
-        <ListItemText primary="Inbox" />
+        <ListItemText primary="Formulare" />
         {open ? <ExpandLess /> : <ExpandMore />}
       </ListItemButton>
       <Collapse in={open} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 4, ...listButtonStyle }}>
-            <ListItemText primary="Starred 1" />
+          <ListItemButton href="/anmeldung" sx={{ pl: 4, ...listButtonStyle }}>
+            <ListItemText primary="Anmeldung" />
           </ListItemButton>
-          <ListItemButton sx={{ pl: 4, ...listButtonStyle }}>
-            <ListItemText primary="Starred 2" />
+          <ListItemButton href="/abmeldung" sx={{ pl: 4, ...listButtonStyle }}>
+            <ListItemText primary="Abmeldung" />
           </ListItemButton>
-          <ListItemButton sx={{ pl: 4, ...listButtonStyle }}>
-            <ListItemText primary="Starred 3" />
-          </ListItemButton>
-          <ListItemButton sx={{ pl: 4, ...listButtonStyle }}>
-            <ListItemText primary="Starred 4" />
+          <ListItemButton href="/ummeldung" sx={{ pl: 4, ...listButtonStyle }}>
+            <ListItemText primary="Ummeldung" />
           </ListItemButton>
         </List>
       </Collapse>

@@ -1,0 +1,26 @@
+.flex {
+  display: flex;
+  column-gap: 2rem;
+  row-gap: 6px;
+  padding: 5px 25px;
+  width: 80%;
+  justify-content: space-between;
+  /* flex-wrap: wrap; */
+}
+
+.container {
+  padding-inline: 2rem;
+  padding-block: 1rem;
+}
+
+.dateinput {
+  width: 100%;
+  cursor: pointer;
+}
+
+.dateinput:required:invalid::-webkit-datetime-edit {
+  color: transparent;
+}
+.dateinput:focus::-webkit-datetime-edit {
+  color: black !important;
+}

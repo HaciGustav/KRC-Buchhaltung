@@ -12,69 +12,23 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-
+import CloseIcon from "@mui/icons-material/Close";
 import LangSwitch from "../LangSwitch";
 import SidebarList from "./List";
-
-const drawerWidth = 240;
-const drawerHeight = "7rem";
-
-const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
-  ({ theme, open }) => ({
-    flexGrow: 1,
-    padding: theme.spacing(3),
-    transition: theme.transitions.create("margin", {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-    marginLeft: `-${drawerWidth}px`,
-    ...(open && {
-      transition: theme.transitions.create("margin", {
-        easing: theme.transitions.easing.easeOut,
-        duration: theme.transitions.duration.enteringScreen,
-      }),
-      marginLeft: 0,
-    }),
-  })
-);
-
-const AppBar = styled(MuiAppBar, {
-  shouldForwardProp: (prop) => prop !== "open",
-})(({ theme, open }) => ({
-  transition: theme.transitions.create(["margin", "width"], {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.leavingScreen,
-  }),
-  ...(!open && {
-    width: `calc(100% - ${drawerWidth}px)`,
-    marginLeft: `${drawerWidth}px`,
-    transition: theme.transitions.create(["margin", "width"], {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  }),
-}));
-
-const DrawerHeader = styled("div")(({ theme }) => ({
-  display: "flex",
-  alignItems: "center",
-  height: drawerHeight,
-  padding: theme.spacing(0, 1),
-  // necessary for content to be below app bar
-  ...theme.mixins.toolbar,
-  justifyContent: "flex-end",
-}));
+import {
+  AppBar,
+  DrawerHeader,
+  Main,
+  drawerHeight,
+  drawerWidth,
+} from "./LayoutComponents";
 
 const Layout = ({ children }) => {
   const theme = useTheme();
   const [open, setOpen] = React.useState(true);
 
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
-
-  const handleDrawerClose = () => {
-    setOpen(false);
+  const handleDrawerToggle = () => {
+    setOpen(!open);
   };
 
   return (
@@ -82,9 +36,29 @@ const Layout = ({ children }) => {
       <CssBaseline />
       <AppBar
         sx={{
+          height: drawerHeight,
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "flex-end",
+            paddingInline: "1rem",
+            height: "100%",
+          }}
+        >
+          Großmarktstraße 4, 1230 Wien - Tel:
+          <span style={{ paddingInline: "3px" }} />
+          <a href="tel:+43 660 174 39 00 "> +43 660 174 39 00 </a>
+          <span style={{ paddingInline: "3px" }}> | </span>
+          <a href="mailto:office@krc-k.at"> office@krc-k.at</a>
+        </div>
+      </AppBar>
+      {/* <AppBar
+        sx={{
           backgroundColor: "#fff",
           height: drawerHeight,
-          border: "2px solid red",
         }}
         position="fixed"
         open={open}
@@ -103,34 +77,42 @@ const Layout = ({ children }) => {
               display: "flex",
               alignItems: "center",
               height: "100%",
-              border: "2px solid red",
             }}
           >
-            <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              onClick={handleDrawerOpen}
-              edge="start"
-              sx={{ color: "#692046", mr: 2, ...(open && { display: "none" }) }}
+            <div
+              style={{
+                display: "grid",
+                placeItems: "center",
+                paddingInline: "2rem",
+              }}
             >
-              <MenuIcon />
-            </IconButton>
-            <img style={{ width: "8rem" }} src="/assets/logo.svg" />
-            <h3 style={{ color: "#000" }}>KRC Buchhaltungskanzlei KG</h3>
+              <IconButton
+                color="inherit"
+                aria-label="open drawer"
+                onClick={handleDrawerToggle}
+                edge="start"
+                sx={{ color: "#692046", mr: 2 }}
+              >
+                {open ? <CloseIcon /> : <MenuIcon />}
+              </IconButton>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                columnGap: "1rem",
+                alignItems: "center",
+              }}
+            >
+              <img style={{ width: "5.5rem" }} src="/assets/logo.svg" />
+              <h3 style={{ color: "#000", fontSize: "1rem" }}>
+                KRC Buchhaltungskanzlei KG
+              </h3>
+            </div>
           </Toolbar>
 
           <LangSwitch />
         </div>
-        <div
-          style={{
-            minHeight: "40px",
-            // border: "2px solid red",
-            display: "flex",
-            justifyContent: "space-around",
-            alignItems: "center",
-          }}
-        ></div>
-      </AppBar>
+      </AppBar> */}
       <Drawer
         sx={{
           width: drawerWidth,
@@ -146,25 +128,40 @@ const Layout = ({ children }) => {
         open={open}
       >
         <DrawerHeader />
-        <div>
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === "ltr" ? (
-              <ChevronLeftIcon />
-            ) : (
-              <ChevronRightIcon />
-            )}
-          </IconButton>
+        <div
+          style={{
+            display: "flex",
+            columnGap: "1rem",
+            alignItems: "center",
+            justifyContent: "center",
+            flexWrap: "wrap",
+            paddingBlock: "2rem",
+          }}
+        >
+          <img style={{ width: "8rem" }} src="/assets/logo.svg" />
+          <h3 style={{ color: "#000", fontSize: "1rem", textAlign: "center" }}>
+            <span
+              style={{
+                fontSize: "1.5rem",
+                display: "block",
+                width: "100%",
+                padding: "0",
+              }}
+            >
+              {" "}
+              KRC{" "}
+            </span>{" "}
+            Buchhaltungskanzlei KG
+          </h3>
         </div>
+
         <Divider />
+
         <SidebarList />
         <Divider />
       </Drawer>
       <Main open={open}>
-        <DrawerHeader
-          sx={{
-            paddingTop: "90px",
-          }}
-        />
+        <DrawerHeader />
         {children}
       </Main>
     </Box>
