@@ -16,13 +16,16 @@ import { useState } from "react";
 
 import css from "@/styles/forms.module.css";
 import DateInput from "@/components/form-components/DateInput";
-import axios from "axios";
+import useFormCalls from "@/hooks/useFormCalls";
 
 const Anmeldung = () => {
   const [formData, setFormData] = useState({});
 
+  const { sendAnmeldung } = useFormCalls();
+
   const handleChange = (event) => {
     const { name, value, type, checked } = event.target;
+    console.log(formData);
     setFormData({
       ...formData,
       [name]: type === "checkbox" ? checked : value,
@@ -31,8 +34,9 @@ const Anmeldung = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    sendAnmeldung(formData);
 
-    console.log("Form Data:", formData);
+    // console.log("Form Data:", formData);
   };
   return (
     <form className={css.container} onSubmit={handleSubmit}>

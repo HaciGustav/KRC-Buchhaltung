@@ -5,6 +5,7 @@ import { IntlProvider } from "react-intl";
 import tr from "@/i18n/tr.json";
 import de from "@/i18n/de.json";
 import Layout from "@/components/Layout/Layout";
+import { ToastContainer } from "react-toastify";
 
 const messages = { tr, de };
 
@@ -18,6 +19,7 @@ export default function App({ Component, pageProps }) {
       <Layout>
         <Component {...pageProps} dir={getDirection(locale)} />
       </Layout>
+      <ToastContainer />
     </IntlProvider>
   );
 }

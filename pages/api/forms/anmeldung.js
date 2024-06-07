@@ -3,12 +3,16 @@ import { createMail } from "@/utils/email_service";
 const nodemailer = require("nodemailer");
 
 export default function handler(req, res) {
+  console.log(req.body);
+
+  const subject = `Anmeldung: ${req.body.employer}`;
+  const receiver = req.body.email;
+  const formData = req.body;
   const message = createMail(
-    null,
-    "mehmetfkuruldak@gmail.com",
-    "TEST-MAIL",
-    "TEST-MAIL-TEXT",
-    null
+    receiver,
+    subject,
+    "Empfangsbestätigung",
+    formData
   );
 
   let transporter = nodemailer.createTransport({
@@ -25,11 +29,10 @@ export default function handler(req, res) {
     transporter.sendMail(message, (err, info) => {
       if (err) {
         console.log(err);
-        res.status(404).json({
-          error: `Connection refused at ${err.address}`,
+        res.status(err.responseCode).json({
+          error: err.response,
         });
       } else {
-        console.log("success");
         res.status(250).json({
           success: `Message delivered to ${info.accepted}`,
         });
