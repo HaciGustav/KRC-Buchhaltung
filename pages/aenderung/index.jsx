@@ -18,10 +18,11 @@ import { useState } from "react";
 
 import css from "@/styles/forms.module.css";
 import DateInput from "@/components/form-components/DateInput";
+import useFormCalls from "@/hooks/useFormCalls";
 
 const Aenderung = () => {
   const [formData, setFormData] = useState({});
-
+  const { sendAenderung } = useFormCalls();
   const handleChange = (event) => {
     const { name, value, type, checked } = event.target;
     setFormData({
@@ -32,23 +33,16 @@ const Aenderung = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    sendAenderung(formData);
 
-    try {
-      const data = await axios.post("/api/forms/anmeldung", {});
-      console.log("DATA==>", data);
-    } catch (error) {
-      console.log(error);
-    }
-
-    console.log("Form Data:", formData);
+    // console.log("Form Data:", formData);
   };
-
   return (
     <form className={css.container} onSubmit={handleSubmit}>
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <Typography variant="h4" gutterBottom>
-            Änderung
+            Änderungsformular
           </Typography>
         </Grid>
         <Grid item xs={12} sm={6}>

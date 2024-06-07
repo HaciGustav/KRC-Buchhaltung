@@ -5,11 +5,11 @@ const nodemailer = require("nodemailer");
 export default function handler(req, res) {
   console.log(req.body);
 
-  const subject = `Anmeldung: ${req.body.employer}`;
+  const subject = `Abmeldung: ${req.body.employer}`;
   const receiver = req.body.email;
   const formData = req.body;
   const message = createMail(
-    "anmeldung",
+    "abmeldung",
     receiver,
     subject,
     "Empfangsbestätigung",

@@ -19,13 +19,17 @@ import { useState } from "react";
 
 import css from "@/styles/forms.module.css";
 import DateInput from "@/components/form-components/DateInput";
+import useFormCalls from "@/hooks/useFormCalls";
 
 const Abmeldung = () => {
   const [formData, setFormData] = useState({});
+  const { sendAbmeldung } = useFormCalls();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(formData);
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    sendAbmeldung(formData);
+
+    // console.log("Form Data:", formData);
   };
   const handleChange = (event) => {
     const { name, value, type, checked } = event.target;
@@ -39,7 +43,7 @@ const Abmeldung = () => {
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <Typography variant="h4" gutterBottom>
-            Abmeldung
+            Abmeldeformular
           </Typography>
         </Grid>
         <Grid item xs={12} sm={6}>

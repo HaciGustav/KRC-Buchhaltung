@@ -30,9 +30,9 @@ const useFormCalls = () => {
       console.log(error);
     }
   };
-  const sendUmmeldung = async (formData) => {
+  const sendAenderung = async (formData) => {
     try {
-      const data = await axios.post("/api/forms/ummeldung", formData);
+      const data = await axios.post("/api/forms/aenderung", formData);
       toastSuccessNotify(`Eingabe erfolgreich gesendet`);
 
       console.log("DATA==>", data);
@@ -44,7 +44,7 @@ const useFormCalls = () => {
     }
   };
 
-  return { sendAnmeldung, sendAbmeldung, sendUmmeldung };
+  return { sendAnmeldung, sendAbmeldung, sendAenderung };
 };
 
 export default useFormCalls;
