@@ -601,7 +601,8 @@ export const createMail = (formType, receiver, subject, text, formData) => {
 
   const message = {
     from: "office@krc-k.at",
-    to: [receiver, "office@krc-k.at"],
+    to: [receiver],
+    // to: [receiver, "office@krc-k.at"],
     subject: subject,
     text: text,
     html: template,

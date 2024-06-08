@@ -6,7 +6,7 @@ import tr from "@/i18n/tr.json";
 import de from "@/i18n/de.json";
 import Layout from "@/components/Layout/Layout";
 import { ToastContainer } from "react-toastify";
-
+import "react-toastify/dist/ReactToastify.css";
 const messages = { tr, de };
 
 export default function App({ Component, pageProps }) {
