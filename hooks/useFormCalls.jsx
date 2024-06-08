@@ -1,19 +1,26 @@
 import { toastErrorNotify, toastSuccessNotify } from "@/utils/ToastNotify";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 
 const useFormCalls = () => {
+  const router = useRouter();
+
   const sendAnmeldung = async (formData) => {
     try {
       const data = await axios.post("/api/forms/anmeldung", formData);
       toastSuccessNotify(`Eingabe erfolgreich gesendet`);
-      console.log("DATA==>", data);
+
+      setTimeout(() => {
+        router.push("/");
+      }, 1000);
     } catch (error) {
-      toastErrorNotify(
-        "Etwas ist schiefgelaufen, bitte versuchen Sie es später erneut!"
-      );
-      // toastErrorNotify(
-      //   `${error.response.status} ${error.response.data.error} `
-      // );
+      if (error.response.data?.error?.includes("No recipients defined")) {
+        toastErrorNotify("Email ist falsch eingegeben");
+      } else {
+        toastErrorNotify(
+          "Etwas ist schiefgelaufen, bitte versuchen Sie es später erneut!"
+        );
+      }
       console.log(error);
     }
   };
@@ -21,12 +28,17 @@ const useFormCalls = () => {
     try {
       const data = await axios.post("/api/forms/abmeldung", formData);
       toastSuccessNotify(`Eingabe erfolgreich gesendet`);
-
-      console.log("DATA==>", data);
+      setTimeout(() => {
+        router.push("/");
+      }, 1000);
     } catch (error) {
-      toastErrorNotify(
-        "Etwas ist schiefgelaufen, bitte versuchen Sie es später erneut!"
-      );
+      if (error.response.data?.error?.includes("No recipients defined")) {
+        toastErrorNotify("Email ist falsch eingegeben");
+      } else {
+        toastErrorNotify(
+          "Etwas ist schiefgelaufen, bitte versuchen Sie es später erneut!"
+        );
+      }
       console.log(error);
     }
   };
@@ -34,12 +46,17 @@ const useFormCalls = () => {
     try {
       const data = await axios.post("/api/forms/aenderung", formData);
       toastSuccessNotify(`Eingabe erfolgreich gesendet`);
-
-      console.log("DATA==>", data);
+      setTimeout(() => {
+        router.push("/");
+      }, 1000);
     } catch (error) {
-      toastErrorNotify(
-        "Etwas ist schiefgelaufen, bitte versuchen Sie es später erneut!"
-      );
+      if (error.response.data?.error?.includes("No recipients defined")) {
+        toastErrorNotify("Email ist falsch eingegeben");
+      } else {
+        toastErrorNotify(
+          "Etwas ist schiefgelaufen, bitte versuchen Sie es später erneut!"
+        );
+      }
       console.log(error);
     }
   };
@@ -47,12 +64,17 @@ const useFormCalls = () => {
     try {
       const data = await axios.post("/api/forms/storno", formData);
       toastSuccessNotify(`Eingabe erfolgreich gesendet`);
-
-      console.log("DATA==>", data);
+      setTimeout(() => {
+        router.push("/");
+      }, 1000);
     } catch (error) {
-      toastErrorNotify(
-        "Etwas ist schiefgelaufen, bitte versuchen Sie es später erneut!"
-      );
+      if (error.response.data?.error?.includes("No recipients defined")) {
+        toastErrorNotify("Email ist falsch eingegeben");
+      } else {
+        toastErrorNotify(
+          "Etwas ist schiefgelaufen, bitte versuchen Sie es später erneut!"
+        );
+      }
       console.log(error);
     }
   };

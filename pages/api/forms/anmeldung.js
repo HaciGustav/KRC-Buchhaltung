@@ -30,8 +30,9 @@ export default function handler(req, res) {
     transporter.sendMail(message, (err, info) => {
       if (err) {
         console.log(err);
-        res.status(err.responseCode).json({
-          error: err.response,
+        console.log(err.message);
+        res.status(400).json({
+          error: [err.response, err.message],
         });
       } else {
         res.status(250).json({
