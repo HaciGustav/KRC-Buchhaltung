@@ -541,17 +541,67 @@ export const createMail = (formType, receiver, subject, text, formData) => {
    </div>
  </body>
 `;
+  const stornoBody = `
+ <body>
+    <div class="container">
+      <div class="header">
+       <img src="https://raw.githubusercontent.com/HaciGustav/KRC-Buchhaltung/main/public/assets/logo.png" alt="Company Logo">
+        <h1>Empfangsbestätigung</h1>
+      </div>
+      <div class="content">
+        <p>Sehr geehrte Damen und Herren,</p>
+        <p>
+          vielen Dank für den Versand Ihres Formulars. Wir bestätigen Ihnen
+          hiermit den Eingang Ihrer Nachricht. Folgende Daten haben wir von
+          Ihnen erhalten.
+        </p>
+
+        <div class="data-section">
+          <h2>ANGABEN ZUR PERSON/DIENSTNEHMER</h2>
+          <p><strong>Firma/Dienstgeber:</strong> ${formData.employer}</p>
+          <p><strong>Firma/Betriebsstätte/Arbeitsort:</strong> ${
+            formData.workAddress
+          }</p>
+          <p><strong>Vorname:</strong> ${formData.firstnameDN}</p>
+          <p><strong>Nachname:</strong> ${formData.lastnameDN}</p>
+          <p><strong>Versicherungsnummer:</strong> ${
+            formData.insuranceNumberDN
+          }</p>
+          <p><strong>An oder Abmeldung:</strong> ${
+            formData.cancellationType
+          }</p>
+          <p><strong>Gesendete Nachricht Datum:</strong> ${
+            formData.mailSentAt
+          }</p>
+        </div>
+
+        <div class="data-section">
+          <h2>SONSTIGE ANGABEN</h2>
+          <p><strong>Notizen:</strong> ${formData.note}</p>
+        </div>
+
+        <p>
+          Diese Angaben wurden auf
+          ------
+          gesendet!
+        </p>
+      </div>
+      <div class="footer">
+        <p>&copy; ${new Date().getFullYear()} KRC Buchhaltungskanzlei KG</p>
+      </div>
+    </div>
+  </body>
+`;
 
   let template = null;
   if (formType === "anmeldung") template = mailBase(anmeldungBody);
   else if (formType === "abmeldung") template = mailBase(abmeldungBody);
   else if (formType === "aenderung") template = mailBase(aenderungBody);
-  // else if (formType === "storno") template = mailBase(aenderungBody);
+  else if (formType === "storno") template = mailBase(stornoBody);
 
   const message = {
     from: "office@krc-k.at",
-    to: [receiver],
-    // to: [receiver, "office@krc-k.at"],
+    to: [receiver, "office@krc-k.at"],
     subject: subject,
     text: text,
     html: template,

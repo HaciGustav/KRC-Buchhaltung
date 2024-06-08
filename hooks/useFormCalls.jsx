@@ -43,8 +43,21 @@ const useFormCalls = () => {
       console.log(error);
     }
   };
+  const sendStorno = async (formData) => {
+    try {
+      const data = await axios.post("/api/forms/storno", formData);
+      toastSuccessNotify(`Eingabe erfolgreich gesendet`);
 
-  return { sendAnmeldung, sendAbmeldung, sendAenderung };
+      console.log("DATA==>", data);
+    } catch (error) {
+      toastErrorNotify(
+        "Etwas ist schiefgelaufen, bitte versuchen Sie es später erneut!"
+      );
+      console.log(error);
+    }
+  };
+
+  return { sendAnmeldung, sendAbmeldung, sendAenderung, sendStorno };
 };
 
 export default useFormCalls;

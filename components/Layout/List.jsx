@@ -43,6 +43,9 @@ const SidebarList = () => {
           <ListItemButton href="/aenderung" sx={{ pl: 4, ...listButtonStyle }}>
             <ListItemText primary="Änderung" />
           </ListItemButton>
+          <ListItemButton href="/storno" sx={{ pl: 4, ...listButtonStyle }}>
+            <ListItemText primary="Stornierung" />
+          </ListItemButton>
         </List>
       </Collapse>
     </List>

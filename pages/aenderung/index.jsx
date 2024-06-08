@@ -39,7 +39,7 @@ const Aenderung = () => {
   };
   return (
     <form className={css.container} onSubmit={handleSubmit}>
-      <Grid container spacing={3}>
+      <Grid container spacing={2}>
         <Grid item xs={12}>
           <Typography variant="h4" gutterBottom>
             Änderungsformular
