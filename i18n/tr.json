@@ -1,8 +1,6 @@
 {
-    "page.home.head.title": "aciklama",
-    "page.home.head.meta.description": "aciklama",
+  "page.home.head.title": "KRC Buchhaltung",
+  "page.home.head.meta.description": "KRC Buchhaltung",
 
-
-    "page.home.header": "TR Mehmet F. Kuruldak"
-
+  "page.home.header": "TR Mehmet F. Kuruldak"
 }

@@ -370,43 +370,49 @@ export const createMail = (formType, receiver, subject, text, formData) => {
 
         <div class="data-section">
           <h2>ANGABEN ZUR PERSON/DIENSTNEHMER</h2>
-          <p><strong>Firma/Dienstgeber:</strong> ${formData.employer}</p>
+          <p><strong>Firma/Dienstgeber:</strong> ${formData.employer || ""}</p>
           <p><strong>Firma/Betriebsstätte/Arbeitsort:</strong> ${
-            formData.workAddress
+            formData.workAddress || ""
           }</p>
-          <p><strong>Vorname:</strong> ${formData.firstnameDN}</p>
-          <p><strong>Nachname:</strong> ${formData.lastnameDN}</p>
+          <p><strong>Vorname:</strong> ${formData.firstnameDN || ""}</p>
+          <p><strong>Nachname:</strong> ${formData.lastnameDN || ""}</p>
           <p><strong>Versicherungsnummer:</strong> ${
-            formData.insuranceNumberDN
+            formData.insuranceNumberDN || ""
           }</p>
-          <p><strong>Geschlecht:</strong> ${formData.gender}</p>
-          <p><strong>Adresse:</strong> ${formData.address}</p>
-          <p><strong>PLZ Ort:</strong> ${formData.zip} ${formData.city}</p>
-          <p><strong>Staatsbürgerschaft:</strong> ${formData.citizenship}</p>
+          <p><strong>Geschlecht:</strong> ${formData.gender || ""}</p>
+          <p><strong>Adresse:</strong> ${formData.address || ""}</p>
+          <p><strong>PLZ Ort:</strong> ${formData.zip || ""} ${
+    formData.city || ""
+  }</p>
+          <p><strong>Staatsbürgerschaft:</strong> ${
+            formData.citizenship || ""
+          }</p>
         </div>
 
         <div class="data-section">
           <h2>ANGABEN ZUM BESCHÄFTIGUNGSVERHÄLTNIS</h2>
-          <p><strong>Anmeldedatum:</strong> ${formData.firstWorkDay}</p>
-          <p><strong>Beschäftigung:</strong> ${formData.jobDescription} </p>
-          <p><strong>Gruppe:</strong> ${formData.gruppe}</p>
+          <p><strong>Anmeldedatum:</strong> ${formData.firstWorkDay || ""}</p>
+          <p><strong>Beschäftigung:</strong> ${
+            formData.jobDescription || ""
+          } </p>
+          <p><strong>Gruppe:</strong> ${formData.gruppe || ""}</p>
           <p><strong>Arbeitszeit pro Woche:</strong> ${
-            formData.workingHours
+            formData.workingHours || ""
           }</p>
           <p><strong>Monatsgehalt in Euro/Brutto:</strong> ${
-            formData.salary
+            formData.salary || ""
           } </p>
         </div>
 
         <div class="data-section">
           <h2>ANGABEN DES ZAHLUNGSEMPFÄNGERS</h2>
           
-          <p><strong>IBAN:</strong> ${formData.iban}</p>
+          <p><strong>IBAN:</strong> ${formData.iban || ""}</p> 
         </div>
 
         <div class="data-section">
           <h2>SONSTIGE ANGABEN</h2>
-          <p><strong>Notizen:</strong> ${formData.note}</p>
+          <p><strong>Notizen:</strong> ${formData.note || ""}</p>
         </div>
 
         <p>
@@ -438,29 +444,31 @@ export const createMail = (formType, receiver, subject, text, formData) => {
 
         <div class="data-section">
           <h2>ANGABEN ZUR PERSON/DIENSTNEHMER</h2>
-          <p><strong>Firma/Dienstgeber:</strong> ${formData.employer}</p>
+          <p><strong>Firma/Dienstgeber:</strong> ${formData.employer || ""}</p> 
           <p><strong>Firma/Betriebsstätte/Arbeitsort:</strong> ${
-            formData.workAddress
+            formData.workAddress || ""
           }</p>
-          <p><strong>Vorname:</strong> ${formData.firstnameDN}</p>
-          <p><strong>Nachname:</strong> ${formData.lastnameDN}</p>
+          <p><strong>Vorname:</strong> ${formData.firstnameDN || ""}</p> 
+          <p><strong>Nachname:</strong> ${formData.lastnameDN || ""}</p> 
           <p><strong>Versicherungsnummer:</strong> ${
-            formData.insuranceNumberDN
+            formData.insuranceNumberDN || ""
           }</p>
         </div>
 
         <div class="data-section">
           <h2>ANGABEN ZUM BESCHÄFTIGUNGSVERHÄLTNIS</h2>
-          <p><strong>Abmeldedatum:</strong> ${formData.lastWorkDay}</p>
+          <p><strong>Abmeldedatum:</strong> ${formData.lastWorkDay || ""}</p> 
           <p><strong>Urlaub in Zeit konsumiert:</strong> ${
             formData.holidayUsed ? "Ja" : "Nein"
           } </p>
-          <p><strong>Kündigungsart:</strong> ${formData.terminationType}</p>
+          <p><strong>Kündigungsart:</strong> ${
+            formData.terminationType || ""
+          }</p> 
         </div>
 
         <div class="data-section">
           <h2>SONSTIGE ANGABEN</h2>
-          <p><strong>Notizen:</strong> ${formData.note}</p>
+          <p><strong>Notizen:</strong> ${formData.note || ""}</p> 
         </div>
 
         <p>
@@ -492,41 +500,49 @@ export const createMail = (formType, receiver, subject, text, formData) => {
 
        <div class="data-section">
          <h2>ANGABEN ZUR PERSON/DIENSTNEHMER</h2>
-         <p><strong>Firma/Dienstgeber:</strong> ${formData.employer}</p>
+         <p><strong>Firma/Dienstgeber:</strong> ${formData.employer || ""}</p> 
          <p><strong>Firma/Betriebsstätte/Arbeitsort:</strong> ${
-           formData.workAddress
+           formData.workAddress || ""
          }</p>
-         <p><strong>Vorname:</strong> ${formData.firstnameDN}</p>
-         <p><strong>Nachname:</strong> ${formData.lastnameDN}</p>
+         <p><strong>Vorname:</strong> ${formData.firstnameDN || ""}</p> 
+         <p><strong>Nachname:</strong> ${formData.lastnameDN || ""}</p> 
          <p><strong>Versicherungsnummer:</strong> ${
-           formData.insuranceNumberDN
+           formData.insuranceNumberDN || ""
          }</p>
-         <p><strong>Geschlecht:</strong> ${formData.gender}</p>
-         <p><strong>Adresse:</strong> ${formData.address}</p>
-         <p><strong>PLZ Ort:</strong> ${formData.zip} ${formData.city}</p>
-         <p><strong>Staatsbürgerschaft:</strong> ${formData.citizenship}</p>
+         <p><strong>Geschlecht:</strong> ${formData.gender || ""}</p> 
+         <p><strong>Adresse:</strong> ${formData.address || ""}</p> 
+         <p><strong>PLZ Ort:</strong> ${formData.zip || ""} ${
+    formData.city || ""
+  }</p> 
+         <p><strong>Staatsbürgerschaft:</strong> ${
+           formData.citizenship || ""
+         }</p>
        </div>
 
        <div class="data-section">
          <h2>ANGABEN ZUM BESCHÄFTIGUNGSVERHÄLTNIS</h2>
-         <p><strong>Anmeldedatum:</strong> ${formData.firstWorkDay}</p>
-         <p><strong>Beschäftigung:</strong> ${formData.jobDescription} </p>
-         <p><strong>Gruppe:</strong> ${formData.gruppe}</p>
-         <p><strong>Arbeitszeit pro Woche:</strong> ${formData.workingHours}</p>
+         <p><strong>Anmeldedatum:</strong> ${formData.firstWorkDay || ""}</p> 
+         <p><strong>Beschäftigung:</strong> ${
+           formData.jobDescription || ""
+         } </p> 
+         <p><strong>Gruppe:</strong> ${formData.gruppe || ""}</p> 
+         <p><strong>Arbeitszeit pro Woche:</strong> ${
+           formData.workingHours || ""
+         }</p> 
          <p><strong>Monatsgehalt in Euro/Brutto:</strong> ${
-           formData.salary
+           formData.salary || ""
          } </p>
        </div>
 
        <div class="data-section">
          <h2>ANGABEN DES ZAHLUNGSEMPFÄNGERS</h2>
          
-         <p><strong>IBAN:</strong> ${formData.iban}</p>
+         <p><strong>IBAN:</strong> ${formData.iban || ""}</p> 
        </div>
 
        <div class="data-section">
          <h2>SONSTIGE ANGABEN</h2>
-         <p><strong>Notizen:</strong> ${formData.note}</p>
+         <p><strong>Notizen:</strong> ${formData.note || ""}</p> 
        </div>
 
        <p>
@@ -558,26 +574,26 @@ export const createMail = (formType, receiver, subject, text, formData) => {
 
         <div class="data-section">
           <h2>ANGABEN ZUR PERSON/DIENSTNEHMER</h2>
-          <p><strong>Firma/Dienstgeber:</strong> ${formData.employer}</p>
+          <p><strong>Firma/Dienstgeber:</strong> ${formData.employer || ""}</p> 
           <p><strong>Firma/Betriebsstätte/Arbeitsort:</strong> ${
-            formData.workAddress
+            formData.workAddress || ""
           }</p>
-          <p><strong>Vorname:</strong> ${formData.firstnameDN}</p>
-          <p><strong>Nachname:</strong> ${formData.lastnameDN}</p>
+          <p><strong>Vorname:</strong> ${formData.firstnameDN || ""}</p> 
+          <p><strong>Nachname:</strong> ${formData.lastnameDN || ""}</p> 
           <p><strong>Versicherungsnummer:</strong> ${
-            formData.insuranceNumberDN
+            formData.insuranceNumberDN || ""
           }</p>
           <p><strong>An oder Abmeldung:</strong> ${
-            formData.cancellationType
+            formData.cancellationType || ""
           }</p>
           <p><strong>Gesendete Nachricht Datum:</strong> ${
-            formData.mailSentAt
+            formData.mailSentAt || ""
           }</p>
         </div>
 
         <div class="data-section">
           <h2>SONSTIGE ANGABEN</h2>
-          <p><strong>Notizen:</strong> ${formData.note}</p>
+          <p><strong>Notizen:</strong> ${formData.note || ""}</p> 
         </div>
 
         <p>
@@ -601,8 +617,7 @@ export const createMail = (formType, receiver, subject, text, formData) => {
 
   const message = {
     from: "office@krc-k.at",
-    to: [receiver],
-    // to: [receiver, "office@krc-k.at"],
+    to: [receiver, "office@krc-k.at"],
     subject: subject,
     text: text,
     html: template,

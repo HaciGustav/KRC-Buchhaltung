@@ -22,6 +22,7 @@ import {
   drawerHeight,
   drawerWidth,
 } from "./LayoutComponents";
+import Link from "next/link";
 
 const Layout = ({ children }) => {
   const theme = useTheme();
@@ -139,7 +140,9 @@ const Layout = ({ children }) => {
             paddingBlock: "2rem",
           }}
         >
-          <img style={{ width: "8rem" }} src="/assets/logo.svg" />
+          <Link href={"/"} style={{ textDecoration: "none" }}>
+            <img style={{ width: "8rem" }} src="/assets/logo.svg" />
+          </Link>
           <h3 style={{ color: "#000", fontSize: "1rem", textAlign: "center" }}>
             <span
               style={{
