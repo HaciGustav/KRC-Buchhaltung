@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 
 const useFormCalls = () => {
   const router = useRouter();
-  const BASE_URL = "https://www.krc-buchhaltung.vercel.app";
+  const BASE_URL = "https://krc-buchhaltung.vercel.app";
   const sendAnmeldung = async (formData) => {
     try {
       const data = await axios.post(
