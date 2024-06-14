@@ -25,6 +25,7 @@ import Link from "next/link";
 
 import css from "@/styles/layout.module.css";
 import { useMediaQuery } from "@mui/material";
+import Footer from "../Footer";
 
 const Layout = ({ children }) => {
   const theme = useTheme();
@@ -45,7 +46,6 @@ const Layout = ({ children }) => {
         sx={{
           height: drawerHeight,
           backgroundColor: "#692046",
-          border: "2px solid magenta",
           // display: "flex",
           // alignItems: "center",
           // justifyContent: "flex-start",
