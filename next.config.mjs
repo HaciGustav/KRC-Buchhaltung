@@ -1,12 +1,12 @@
-/** @type {import('next').NextConfig} */
+const development = process.env.DEVELOPMENT;
 const nextConfig = {
-  output: "export",
+  output: development ? "standalone" : "export",
   reactStrictMode: false,
-  i18n: {
-    locales: ["de", "tr"],
-    defaultLocale: "tr",
-    localeDetection: false,
-  },
+  // i18n: {
+  //   locales: ["de", "tr"],
+  //   defaultLocale: "tr",
+  //   localeDetection: false,
+  // },
 };
 
 export default nextConfig;
