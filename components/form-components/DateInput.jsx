@@ -11,7 +11,14 @@ const dateValidation = (date) => {
   if (Number(date[0]) === 3 && Number(date[1]) > 3) return;
 };
 
-const DateInput = ({ filterValue, setFilterValue, label, name, required }) => {
+const DateInput = ({
+  filterValue,
+  setFilterValue,
+  label,
+  name,
+  required,
+  size,
+}) => {
   const handleChange = (e) => {
     const { value: val } = e.target;
     if (Number(val[0]) === 3 && Number(val[1]) > 1) return;
@@ -47,6 +54,7 @@ const DateInput = ({ filterValue, setFilterValue, label, name, required }) => {
       label={label}
       placeholder="DD.MM.YYYY"
       variant="outlined"
+      size={size}
     />
   );
 };

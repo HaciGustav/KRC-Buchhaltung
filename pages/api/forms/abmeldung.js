@@ -2,7 +2,7 @@ import { createMail } from "@/utils/email_service";
 
 const nodemailer = require("nodemailer");
 
-export default function handler(req, res) {
+const handler = (req, res) => {
   console.log(req.body);
 
   const subject = `Abmeldung: ${req.body.employer}`;
@@ -40,4 +40,6 @@ export default function handler(req, res) {
       }
     });
   }
-}
+};
+
+export default allowCors(handler);

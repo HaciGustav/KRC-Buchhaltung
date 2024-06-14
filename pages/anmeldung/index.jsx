@@ -13,6 +13,7 @@ import {
   Select,
   FormGroup,
   Checkbox,
+  useMediaQuery,
 } from "@mui/material";
 import { useState } from "react";
 
@@ -30,6 +31,7 @@ const validationScheme = {
 
 const Anmeldung = () => {
   const [formData, setFormData] = useState({});
+  const screenSmall = useMediaQuery("(max-width:500px)");
 
   const { sendAnmeldung } = useFormCalls();
 
@@ -58,6 +60,7 @@ const Anmeldung = () => {
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
+            size={screenSmall ? "small" : undefined}
             name="employer"
             label="Dienstgeber"
             required
@@ -69,6 +72,7 @@ const Anmeldung = () => {
         <Grid item xs={12} sm={6}>
           <TextField
             name="workAddress"
+            size={screenSmall ? "small" : undefined}
             label="Betriebstätte (Arbeitsort)"
             required
             fullWidth
@@ -79,6 +83,7 @@ const Anmeldung = () => {
         <Grid item xs={12} sm={6}>
           <TextField
             name="email"
+            size={screenSmall ? "small" : undefined}
             label="Firmen e-mail"
             required
             inputProps={{
@@ -92,6 +97,7 @@ const Anmeldung = () => {
         <Grid item xs={12}>
           <TextField
             name="firstnameDN"
+            size={screenSmall ? "small" : undefined}
             label="Vorname DN"
             required
             fullWidth
@@ -102,6 +108,7 @@ const Anmeldung = () => {
         <Grid item xs={12}>
           <TextField
             name="lastnameDN"
+            size={screenSmall ? "small" : undefined}
             label="Nachname DN"
             required
             fullWidth
@@ -112,6 +119,7 @@ const Anmeldung = () => {
         <Grid item xs={12}>
           <TextField
             name="insuranceNumberDN"
+            size={screenSmall ? "small" : undefined}
             label="Versicherungsnummer DN"
             required
             fullWidth
@@ -151,6 +159,7 @@ const Anmeldung = () => {
           <TextField
             name="address"
             label="Adresse"
+            size={screenSmall ? "small" : undefined}
             required
             fullWidth
             value={formData.address || ""}
@@ -160,6 +169,7 @@ const Anmeldung = () => {
         <Grid item xs={12} sm={6}>
           <TextField
             name="zip"
+            size={screenSmall ? "small" : undefined}
             label="PLZ"
             required
             fullWidth
@@ -170,6 +180,7 @@ const Anmeldung = () => {
         <Grid item xs={12} sm={6}>
           <TextField
             name="city"
+            size={screenSmall ? "small" : undefined}
             label="Ort"
             required
             fullWidth
@@ -180,6 +191,7 @@ const Anmeldung = () => {
         <Grid item xs={12} sm={6}>
           <TextField
             name="citizenship"
+            size={screenSmall ? "small" : undefined}
             label="Staatsbürgerschaft"
             required
             fullWidth
@@ -190,6 +202,7 @@ const Anmeldung = () => {
         <Grid item xs={12} sm={6}>
           <TextField
             name="iban"
+            size={screenSmall ? "small" : undefined}
             label="IBAN"
             fullWidth
             value={formData.iban || ""}
@@ -199,6 +212,7 @@ const Anmeldung = () => {
         <Grid item xs={12} sm={6}>
           <DateInput
             filterValue={formData}
+            size={screenSmall ? "small" : undefined}
             required={true}
             setFilterValue={setFormData}
             label="Anmeldedatum 1. Arbeitstag"
@@ -209,6 +223,7 @@ const Anmeldung = () => {
           <TextField
             name="jobDescription"
             label="Tätigkeit"
+            size={screenSmall ? "small" : undefined}
             placeholder="z.B Taxilenker"
             required
             fullWidth
@@ -219,6 +234,7 @@ const Anmeldung = () => {
         <Grid item xs={12} sm={6}>
           <TextField
             name="experience"
+            size={screenSmall ? "small" : undefined}
             label="Erfahrung Vorjahre"
             fullWidth
             value={formData.experience || ""}
@@ -229,6 +245,7 @@ const Anmeldung = () => {
           <TextField
             name="workingHours"
             label="Arbeitszeit (Stunden-Woche)"
+            size={screenSmall ? "small" : undefined}
             required
             fullWidth
             value={formData.workingHours || ""}
@@ -237,11 +254,14 @@ const Anmeldung = () => {
         </Grid>
         <Grid item xs={12} sm={6}>
           <FormControl sx={{ minWidth: 120, width: "calc(100% - 5px)" }}>
-            <InputLabel id="group">Gruppe</InputLabel>
+            <InputLabel size={screenSmall ? "small" : undefined} id="group">
+              Gruppe
+            </InputLabel>
             <Select
               sx={{ width: "100%" }}
               labelId="group"
               id="demo-select-small"
+              size={screenSmall ? "small" : undefined}
               name="gruppe"
               value={formData?.gruppe || ""}
               label="Gruppe"
@@ -265,9 +285,15 @@ const Anmeldung = () => {
         </Grid>
         <Grid item xs={12} sm={6}>
           <FormControl sx={{ minWidth: 120, width: "calc(100% - 5px)" }}>
-            <InputLabel id="insuranceType">Versicherungstyp</InputLabel>
+            <InputLabel
+              size={screenSmall ? "small" : undefined}
+              id="insuranceType"
+            >
+              Versicherungstyp
+            </InputLabel>
             <Select
               sx={{ width: "100%" }}
+              size={screenSmall ? "small" : undefined}
               labelId="insuranceType"
               id="demo-select-small"
               name="insuranceType"
@@ -291,6 +317,7 @@ const Anmeldung = () => {
         <Grid item xs={12} sm={6}>
           <TextField
             name="salary"
+            size={screenSmall ? "small" : undefined}
             label="Gehalt - Monat (Brutto)"
             required
             fullWidth
@@ -302,6 +329,7 @@ const Anmeldung = () => {
           <TextField
             name="note"
             label="Notizen"
+            size={screenSmall ? "small" : undefined}
             fullWidth
             multiline
             rows={4}

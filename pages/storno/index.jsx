@@ -11,6 +11,7 @@ import {
   MenuItem,
   InputLabel,
   Select,
+  useMediaQuery,
 } from "@mui/material";
 import { useState } from "react";
 
@@ -21,6 +22,8 @@ import useFormCalls from "@/hooks/useFormCalls";
 const Storno = () => {
   const [formData, setFormData] = useState({});
   const { sendStorno } = useFormCalls();
+
+  const screenSmall = useMediaQuery("(max-width:500px)");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -35,7 +38,6 @@ const Storno = () => {
       [name]: type === "checkbox" ? checked : value,
     });
   };
-
   return (
     <form className={css.container} onSubmit={handleSubmit}>
       <Grid container spacing={2}>
@@ -48,6 +50,7 @@ const Storno = () => {
           <TextField
             name="employer"
             label="Dienstgeber"
+            size={screenSmall ? "small" : undefined}
             required
             fullWidth
             value={formData.employer || ""}
@@ -58,6 +61,7 @@ const Storno = () => {
           <TextField
             name="workAddress"
             label="Betriebstätte (Arbeitsort)"
+            size={screenSmall ? "small" : undefined}
             required
             fullWidth
             value={formData.workAddress}
@@ -68,6 +72,7 @@ const Storno = () => {
           <TextField
             name="email"
             label="Firmen e-mail"
+            size={screenSmall ? "small" : undefined}
             inputProps={{
               type: "email",
             }}
@@ -82,6 +87,7 @@ const Storno = () => {
             name="firstnameDN"
             label="Vorname DN"
             required
+            size={screenSmall ? "small" : undefined}
             fullWidth
             value={formData.firstnameDN || ""}
             onChange={handleChange}
@@ -92,6 +98,7 @@ const Storno = () => {
             name="lastnameDN"
             label="Nachname DN"
             required
+            size={screenSmall ? "small" : undefined}
             fullWidth
             value={formData.lastnameDN || ""}
             onChange={handleChange}
@@ -102,6 +109,7 @@ const Storno = () => {
             name="insuranceNumberDN"
             label="Versicherungsnummer DN"
             required
+            size={screenSmall ? "small" : undefined}
             fullWidth
             value={formData.insuranceNumberDN || ""}
             onChange={handleChange}
@@ -136,6 +144,7 @@ const Storno = () => {
             setFilterValue={setFormData}
             label="Gesendete Nachricht Datum"
             name="mailSentAt"
+            size={screenSmall ? "small" : undefined}
           />
         </Grid>
 

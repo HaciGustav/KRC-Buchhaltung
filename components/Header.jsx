@@ -9,34 +9,28 @@ const Header = () => {
           style={{ backgroundImage: `url(/assets/header.jpg)` }}
         >
           <div className={styles.header_opacity}>
-            <div className={styles.slogan_wrapper}>
+            <div>
               <h1 className={`${styles.header_title} ${styles.border_effect} `}>
                 Professionelle Buchhaltung
               </h1>
-              <div
-                style={{
-                  color: "#fff",
-                  display: "flex",
-                  justifyContent: "space-between",
-                }}
-              >
+              <div className={styles.slogan_wrapper}>
                 <h2
                   className={styles.border_effect}
-                  style={{ fontSize: "2rem", fontWeight: "600" }}
+                  // style={{ fontSize: "2rem", fontWeight: "600" }}
                 >
                   Pünktlich
                 </h2>{" "}
                 <span style={{ display: "grid", placeItems: "center" }}>●</span>
                 <h2
                   className={styles.border_effect}
-                  style={{ fontSize: "2rem", fontWeight: "600" }}
+                  // style={{ fontSize: "2rem", fontWeight: "600" }}
                 >
                   Verlässlich
                 </h2>{" "}
                 <span style={{ display: "grid", placeItems: "center" }}>●</span>
                 <h2
                   className={styles.border_effect}
-                  style={{ fontSize: "2rem", fontWeight: "600" }}
+                  // style={{ fontSize: "2rem", fontWeight: "600" }}
                 >
                   Effizient
                 </h2>{" "}

@@ -417,7 +417,7 @@ export const createMail = (formType, receiver, subject, text, formData) => {
 
         <p>
           Diese Angaben wurden über ein Anmeldeformular auf
-          ------
+          www.krc-k.at
           gesendet!
         </p>
       </div>
@@ -473,7 +473,7 @@ export const createMail = (formType, receiver, subject, text, formData) => {
 
         <p>
           Diese Angaben wurden über ein Abmeldeformular auf
-          ------
+          www.krc-k.at
           gesendet!
         </p>
       </div>
@@ -547,7 +547,7 @@ export const createMail = (formType, receiver, subject, text, formData) => {
 
        <p>
          Diese Angaben wurden über ein Änderungsformular auf
-         ------
+         www.krc-k.at
          gesendet!
        </p>
      </div>
@@ -598,7 +598,7 @@ export const createMail = (formType, receiver, subject, text, formData) => {
 
         <p>
           Diese Angaben wurden auf
-          ------
+          www.krc-k.at
           gesendet!
         </p>
       </div>
@@ -617,7 +617,8 @@ export const createMail = (formType, receiver, subject, text, formData) => {
 
   const message = {
     from: "office@krc-k.at",
-    to: [receiver /* "office@krc-k.at", "lohn1@krc-k.at"*/],
+    to: [receiver],
+    // to: [receiver, "office@krc-k.at", "lohn1@krc-k.at"],
     subject: subject,
     text: text,
     html: template,

@@ -13,7 +13,6 @@ import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import CloseIcon from "@mui/icons-material/Close";
-import LangSwitch from "../LangSwitch";
 import SidebarList from "./List";
 import {
   AppBar,
@@ -24,13 +23,20 @@ import {
 } from "./LayoutComponents";
 import Link from "next/link";
 
+import css from "@/styles/layout.module.css";
+import { useMediaQuery } from "@mui/material";
+
 const Layout = ({ children }) => {
   const theme = useTheme();
   const [open, setOpen] = React.useState(true);
-
+  const screenMedium = useMediaQuery("(max-width:800px)");
   const handleDrawerToggle = () => {
     setOpen(!open);
   };
+
+  React.useEffect(() => {
+    setOpen(screenMedium ? false : true);
+  }, [screenMedium]);
 
   return (
     <Box sx={{ display: "flex" }}>
@@ -39,82 +45,42 @@ const Layout = ({ children }) => {
         sx={{
           height: drawerHeight,
           backgroundColor: "#692046",
+          border: "2px solid magenta",
+          // display: "flex",
+          // alignItems: "center",
+          // justifyContent: "flex-start",
         }}
       >
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "flex-end",
-            paddingInline: "1rem",
-            height: "100%",
-          }}
-        >
-          Großmarktstraße 4, 1230 Wien - Tel:
-          <span style={{ paddingInline: "3px" }} />
-          <a href="tel:+43 660 174 39 00 "> +43 660 174 39 00 </a>
-          <span style={{ paddingInline: "3px" }}> | </span>
-          <a href="mailto:office@krc-k.at"> office@krc-k.at</a>
-        </div>
-      </AppBar>
-      {/* <AppBar
-        sx={{
-          backgroundColor: "#fff",
-          height: drawerHeight,
-        }}
-        position="fixed"
-        open={open}
-      >
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            flexDirection: "row",
-            alignItems: "center",
-            height: "100%",
-          }}
-        >
-          <Toolbar
-            sx={{
-              display: "flex",
-              alignItems: "center",
+        {screenMedium && (
+          <div
+            style={{
               height: "100%",
+              width: "100%",
+              display: "flex",
+              justifyContent: "flex-start",
             }}
           >
-            <div
-              style={{
-                display: "grid",
-                placeItems: "center",
-                paddingInline: "2rem",
-              }}
-            >
-              <IconButton
-                color="inherit"
-                aria-label="open drawer"
-                onClick={handleDrawerToggle}
-                edge="start"
-                sx={{ color: "#692046", mr: 2 }}
-              >
-                {open ? <CloseIcon /> : <MenuIcon />}
-              </IconButton>
-            </div>
-            <div
-              style={{
-                display: "flex",
-                columnGap: "1rem",
-                alignItems: "center",
-              }}
-            >
-              <img style={{ width: "5.5rem" }} src="/assets/logo.svg" />
-              <h3 style={{ color: "#000", fontSize: "1rem" }}>
-                KRC Buchhaltungskanzlei KG
-              </h3>
-            </div>
-          </Toolbar>
+            <IconButton onClick={() => setOpen(!open)}>
+              {open ? (
+                <CloseIcon sx={{ color: "#fff" }} />
+              ) : (
+                <MenuIcon sx={{ color: "#fff" }} />
+              )}
+            </IconButton>
+          </div>
+        )}
 
-          <LangSwitch />
-        </div>
-      </AppBar> */}
+        {!screenMedium && (
+          <div className={css.header_info_div}>
+            Großmarktstraße 4, 1230 Wien - Tel:
+            <span style={{ paddingInline: "3px" }} />
+            <a href="tel:+43 660 174 39 00 "> +43 660 174 39 00 </a>
+            <span style={{ paddingInline: "3px" }}> | </span>
+            <a href="mailto:office@krc-k.at"> office@krc-k.at</a>
+          </div>
+        )}
+      </AppBar>
+
       <Drawer
         sx={{
           width: drawerWidth,

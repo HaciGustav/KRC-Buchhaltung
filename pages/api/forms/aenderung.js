@@ -1,8 +1,9 @@
+import allowCors from "@/utils/allowCors";
 import { createMail } from "@/utils/email_service";
 
 const nodemailer = require("nodemailer");
 
-export default function handler(req, res) {
+const handler = (req, res) => {
   console.log(req.body);
 
   const subject = `Änderung: ${req.body.employer}`;
@@ -40,4 +41,5 @@ export default function handler(req, res) {
       }
     });
   }
-}
+};
+export default allowCors(handler);

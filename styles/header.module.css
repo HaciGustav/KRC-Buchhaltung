@@ -29,7 +29,9 @@
   margin-bottom: 5px;
 }
 .slogan_wrapper {
-  /* width: 60%; */
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
 }
 
 .border_effect {
@@ -52,4 +54,19 @@
 .border_effect:hover::after {
   transform: scaleX(1);
   transform-origin: bottom left;
+}
+
+@media (max-width: 800px) {
+  .slogan_wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .header_title {
+    font-size: 1.5rem;
+  }
+
+  .slogan_wrapper h2 {
+    font-size: 1rem;
+  }
 }

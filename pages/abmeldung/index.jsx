@@ -14,6 +14,7 @@ import {
   Switch,
   Grid,
   Typography,
+  useMediaQuery,
 } from "@mui/material";
 import { useState } from "react";
 
@@ -24,6 +25,8 @@ import useFormCalls from "@/hooks/useFormCalls";
 const Abmeldung = () => {
   const [formData, setFormData] = useState({});
   const { sendAbmeldung } = useFormCalls();
+
+  const screenSmall = useMediaQuery("(max-width:500px)");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -48,6 +51,7 @@ const Abmeldung = () => {
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
+            size={screenSmall ? "small" : undefined}
             name="employer"
             label="Dienstgeber"
             fullWidth
@@ -58,6 +62,7 @@ const Abmeldung = () => {
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
+            size={screenSmall ? "small" : undefined}
             name="workAddress"
             label="Betriebstätte (Arbeitsort)"
             fullWidth
@@ -68,6 +73,7 @@ const Abmeldung = () => {
         </Grid>
         <Grid item xs={12}>
           <TextField
+            size={screenSmall ? "small" : undefined}
             name="email"
             label="Firmen e-mail"
             inputProps={{
@@ -81,6 +87,7 @@ const Abmeldung = () => {
         </Grid>
         <Grid item xs={12}>
           <TextField
+            size={screenSmall ? "small" : undefined}
             name="firstnameDN"
             label="Vorname DN"
             fullWidth
@@ -91,6 +98,7 @@ const Abmeldung = () => {
         </Grid>
         <Grid item xs={12}>
           <TextField
+            size={screenSmall ? "small" : undefined}
             name="lastnameDN"
             label="Nachname DN"
             fullWidth
@@ -101,6 +109,7 @@ const Abmeldung = () => {
         </Grid>
         <Grid item xs={12}>
           <TextField
+            size={screenSmall ? "small" : undefined}
             name="insuranceNumberDN"
             label="Versicherungsnummer DN"
             fullWidth
@@ -113,6 +122,7 @@ const Abmeldung = () => {
           <DateInput
             filterValue={formData}
             setFilterValue={setFormData}
+            size={screenSmall ? "small" : undefined}
             required={true}
             label="Abmeldedatum (Letzter Arbeitstag)"
             name="lastWorkDay"
@@ -135,6 +145,7 @@ const Abmeldung = () => {
         </Grid>
         <Grid item xs={12}>
           <TextField
+            size={screenSmall ? "small" : undefined}
             name="terminationType"
             label="Kündigungsart"
             fullWidth
@@ -146,6 +157,7 @@ const Abmeldung = () => {
 
         <Grid item xs={12}>
           <TextField
+            size={screenSmall ? "small" : undefined}
             name="note"
             label="Notizen"
             fullWidth
