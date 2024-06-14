@@ -62,4 +62,4 @@ const handler = (req, res) => {
     });
   }
 };
-module.exports = allowCors(handler);
+export default allowCors(handler);
