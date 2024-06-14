@@ -70,6 +70,9 @@ const Abmeldung = () => {
           <TextField
             name="email"
             label="Firmen e-mail"
+            inputProps={{
+              type: "email",
+            }}
             fullWidth
             required
             value={formData.email || ""}

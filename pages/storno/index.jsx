@@ -68,6 +68,9 @@ const Storno = () => {
           <TextField
             name="email"
             label="Firmen e-mail"
+            inputProps={{
+              type: "email",
+            }}
             required
             fullWidth
             value={formData.email || ""}

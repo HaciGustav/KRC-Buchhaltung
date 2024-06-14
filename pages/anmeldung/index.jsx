@@ -11,12 +11,22 @@ import {
   MenuItem,
   InputLabel,
   Select,
+  FormGroup,
+  Checkbox,
 } from "@mui/material";
 import { useState } from "react";
 
 import css from "@/styles/forms.module.css";
 import DateInput from "@/components/form-components/DateInput";
 import useFormCalls from "@/hooks/useFormCalls";
+
+const validationScheme = {
+  employer: {
+    error: false,
+    touched: false,
+    helperText: "",
+  },
+};
 
 const Anmeldung = () => {
   const [formData, setFormData] = useState({});
@@ -54,6 +64,9 @@ const Anmeldung = () => {
             fullWidth
             value={formData.employer || ""}
             onChange={handleChange}
+            onInvalid={(e) =>
+              e.target.setCustomValidity("Dieses feld ist erforderlich!")
+            }
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -71,6 +84,9 @@ const Anmeldung = () => {
             name="email"
             label="Firmen e-mail"
             required
+            inputProps={{
+              type: "email",
+            }}
             fullWidth
             value={formData.email || ""}
             onChange={handleChange}
@@ -195,7 +211,7 @@ const Anmeldung = () => {
         <Grid item xs={12} sm={6}>
           <TextField
             name="jobDescription"
-            label="Beschäftigkeit"
+            label="Tätigkeit"
             placeholder="z.B Taxilenker"
             required
             fullWidth
@@ -295,6 +311,21 @@ const Anmeldung = () => {
             value={formData.note || ""}
             onChange={handleChange}
           />
+        </Grid>
+        <Grid item xs={12}>
+          <FormGroup>
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={formData.confirmation || false}
+                  onChange={handleChange}
+                  name="confirmation"
+                  required
+                />
+              }
+              label="Hiermit akzeptiere ich die DSVGO (Dateschutzerklärung)"
+            />
+          </FormGroup>
         </Grid>
 
         <Grid item xs={12}>

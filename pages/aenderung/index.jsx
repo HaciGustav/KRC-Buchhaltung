@@ -69,6 +69,9 @@ const Aenderung = () => {
           <TextField
             name="email"
             label="Firmen e-mail"
+            inputProps={{
+              type: "email",
+            }}
             required
             fullWidth
             value={formData.email || ""}
@@ -194,7 +197,7 @@ const Aenderung = () => {
         <Grid item xs={12} sm={6}>
           <TextField
             name="jobDescription"
-            label="Beschäftigkeit"
+            label="Tätigkeit"
             placeholder="z.B Taxilenker"
             required
             fullWidth
