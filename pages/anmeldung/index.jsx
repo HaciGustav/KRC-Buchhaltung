@@ -64,9 +64,6 @@ const Anmeldung = () => {
             fullWidth
             value={formData.employer || ""}
             onChange={handleChange}
-            onInvalid={(e) =>
-              e.target.setCustomValidity("Dieses feld ist erforderlich!")
-            }
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -75,7 +72,7 @@ const Anmeldung = () => {
             label="Betriebstätte (Arbeitsort)"
             required
             fullWidth
-            value={formData.workAddress}
+            value={formData.workAddress || ""}
             onChange={handleChange}
           />
         </Grid>

@@ -4,16 +4,20 @@ import { useRouter } from "next/navigation";
 
 const useFormCalls = () => {
   const router = useRouter();
-
+  const BASE_URL = "https://www.krc-buchhaltung.vercel.app";
   const sendAnmeldung = async (formData) => {
     try {
-      const data = await axios.post("/api/forms/anmeldung", formData);
+      const data = await axios.post(
+        BASE_URL + "/api/forms/anmeldung",
+        formData
+      );
       toastSuccessNotify(`Eingabe erfolgreich gesendet`);
 
       setTimeout(() => {
         router.push("/");
       }, 1000);
     } catch (error) {
+      console.log(error);
       if (error.response.data?.error?.includes("No recipients defined")) {
         toastErrorNotify("Email ist falsch eingegeben");
       } else {
@@ -26,7 +30,10 @@ const useFormCalls = () => {
   };
   const sendAbmeldung = async (formData) => {
     try {
-      const data = await axios.post("/api/forms/abmeldung", formData);
+      const data = await axios.post(
+        BASE_URL + "/api/forms/abmeldung",
+        formData
+      );
       toastSuccessNotify(`Eingabe erfolgreich gesendet`);
       setTimeout(() => {
         router.push("/");
@@ -44,7 +51,10 @@ const useFormCalls = () => {
   };
   const sendAenderung = async (formData) => {
     try {
-      const data = await axios.post("/api/forms/aenderung", formData);
+      const data = await axios.post(
+        BASE_URL + "/api/forms/aenderung",
+        formData
+      );
       toastSuccessNotify(`Eingabe erfolgreich gesendet`);
       setTimeout(() => {
         router.push("/");
@@ -62,7 +72,7 @@ const useFormCalls = () => {
   };
   const sendStorno = async (formData) => {
     try {
-      const data = await axios.post("/api/forms/storno", formData);
+      const data = await axios.post(BASE_URL + "/api/forms/storno", formData);
       toastSuccessNotify(`Eingabe erfolgreich gesendet`);
       setTimeout(() => {
         router.push("/");
