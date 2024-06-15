@@ -1,3 +1,4 @@
+import allowCors from "@/utils/allowCors";
 import { createMail } from "@/utils/email_service";
 
 const nodemailer = require("nodemailer");
