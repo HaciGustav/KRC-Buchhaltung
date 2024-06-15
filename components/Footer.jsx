@@ -33,7 +33,6 @@ const Footer = () => {
         <p>
           <a href="#">Impressum</a> |<a href="#">Datenschutz</a>
         </p>
-        <p>Web development: SRG</p>
       </div>
     </footer>
   );

@@ -355,7 +355,7 @@ const Anmeldung = () => {
 
         <Grid item xs={12}>
           <Button type="submit" variant="contained" color="primary">
-            Submit
+            Senden
           </Button>
         </Grid>
       </Grid>
