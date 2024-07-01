@@ -1,6 +1,6 @@
 const development = process.env.DEVELOPMENT;
 const nextConfig = {
-  output: "export",
+  // output: "export",
   reactStrictMode: false,
 };
 
