@@ -1,7 +1,6 @@
 import { createMail } from "@/utils/email_service";
 
 const nodemailer = require("nodemailer");
-
 const allowCors = (fn) => async (req, res) => {
   res.setHeader("Access-Control-Allow-Credentials", true);
   res.setHeader("Access-Control-Allow-Origin", "*");
