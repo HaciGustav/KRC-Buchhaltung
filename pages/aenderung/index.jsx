@@ -20,6 +20,7 @@ import { useState } from "react";
 import css from "@/styles/forms.module.css";
 import DateInput from "@/components/form-components/DateInput";
 import useFormCalls from "@/hooks/useFormCalls";
+import { toastWarnNotify } from "@/utils/ToastNotify";
 
 const Aenderung = () => {
   const [formData, setFormData] = useState({});
@@ -28,6 +29,7 @@ const Aenderung = () => {
 
   const handleChange = (event) => {
     const { name, value, type, checked } = event.target;
+
     setFormData({
       ...formData,
       [name]: type === "checkbox" ? checked : value,
@@ -37,8 +39,6 @@ const Aenderung = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     sendAenderung(formData);
-
-    // console.log("Form Data:", formData);
   };
   return (
     <form className={css.container} onSubmit={handleSubmit}>
@@ -66,7 +66,7 @@ const Aenderung = () => {
             label="Betriebstätte (Arbeitsort)"
             required
             fullWidth
-            value={formData.workAddress}
+            value={formData.workAddress || ""}
             onChange={handleChange}
           />
         </Grid>
@@ -84,7 +84,8 @@ const Aenderung = () => {
             onChange={handleChange}
           />
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={12} sm={6} />
+        <Grid item xs={12} sm={6}>
           <TextField
             name="firstnameDN"
             size={screenSmall ? "small" : undefined}
@@ -95,7 +96,7 @@ const Aenderung = () => {
             onChange={handleChange}
           />
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={12} sm={6}>
           <TextField
             name="lastnameDN"
             size={screenSmall ? "small" : undefined}
@@ -111,46 +112,16 @@ const Aenderung = () => {
             name="insuranceNumberDN"
             size={screenSmall ? "small" : undefined}
             label="Versicherungsnummer DN"
-            required
             fullWidth
             value={formData.insuranceNumberDN || ""}
             onChange={handleChange}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
-          <FormControl required component="fieldset">
-            <FormLabel component="legend">Geschlecht</FormLabel>
-            <RadioGroup
-              name="gender"
-              value={formData.gender || ""}
-              onChange={handleChange}
-              row
-            >
-              <FormControlLabel
-                value="weiblich"
-                control={<Radio />}
-                label="Weiblich"
-              />
-              <FormControlLabel
-                value="männlich"
-                control={<Radio />}
-                label="Männlich"
-              />
-              <FormControlLabel
-                value="andere"
-                control={<Radio />}
-                label="Andere"
-              />
-            </RadioGroup>
-          </FormControl>
-        </Grid>
-
-        <Grid item xs={12} sm={6}>
           <TextField
             name="address"
             label="Adresse"
             size={screenSmall ? "small" : undefined}
-            required
             fullWidth
             value={formData.address || ""}
             onChange={handleChange}
@@ -161,7 +132,6 @@ const Aenderung = () => {
             name="zip"
             label="PLZ"
             size={screenSmall ? "small" : undefined}
-            required
             fullWidth
             value={formData.zip || ""}
             onChange={handleChange}
@@ -172,7 +142,6 @@ const Aenderung = () => {
             name="city"
             label="Ort"
             size={screenSmall ? "small" : undefined}
-            required
             fullWidth
             value={formData.city || ""}
             onChange={handleChange}
@@ -183,7 +152,6 @@ const Aenderung = () => {
             name="citizenship"
             label="Staatsbürgerschaft"
             size={screenSmall ? "small" : undefined}
-            required
             fullWidth
             value={formData.citizenship || ""}
             onChange={handleChange}
@@ -204,7 +172,6 @@ const Aenderung = () => {
             filterValue={formData}
             size={screenSmall ? "small" : undefined}
             setFilterValue={setFormData}
-            required={true}
             label="Anmeldedatum 1. Arbeitstag"
             name="firstWorkDay"
           />
@@ -215,7 +182,6 @@ const Aenderung = () => {
             label="Tätigkeit"
             size={screenSmall ? "small" : undefined}
             placeholder="z.B Taxilenker"
-            required
             fullWidth
             value={formData.jobDescription || ""}
             onChange={handleChange}
@@ -226,7 +192,6 @@ const Aenderung = () => {
             name="experience"
             label="Erfahrung Vorjahre"
             size={screenSmall ? "small" : undefined}
-            required
             fullWidth
             value={formData.experience || ""}
             onChange={handleChange}
@@ -237,7 +202,6 @@ const Aenderung = () => {
             name="workingHours"
             label="Arbeitszeit (Stunden-Woche)"
             size={screenSmall ? "small" : undefined}
-            required
             fullWidth
             value={formData.workingHours || ""}
             onChange={handleChange}
@@ -310,13 +274,26 @@ const Aenderung = () => {
             name="salary"
             label="Gehalt - Monat (Brutto)"
             size={screenSmall ? "small" : undefined}
-            required
             fullWidth
             value={formData.salary || ""}
             onChange={handleChange}
           />
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={12} sm={6}>
+          <TextField
+            name="changingPurpose"
+            label="Änderungszweck"
+            size={screenSmall ? "small" : undefined}
+            required
+            fullWidth
+            multiline
+            rows={3}
+            value={formData.changingPurpose || ""}
+            onChange={handleChange}
+            placeholder="Bitte beschreiben Sie, welche Daten Sie ändern möchten"
+          />
+        </Grid>
+        <Grid item xs={12} sm={6}>
           <TextField
             name="note"
             label="Notizen"

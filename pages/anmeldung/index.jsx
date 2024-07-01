@@ -20,6 +20,7 @@ import { useState } from "react";
 import css from "@/styles/forms.module.css";
 import DateInput from "@/components/form-components/DateInput";
 import useFormCalls from "@/hooks/useFormCalls";
+import { toastWarnNotify } from "@/utils/ToastNotify";
 
 const validationScheme = {
   employer: {
@@ -37,7 +38,6 @@ const Anmeldung = () => {
 
   const handleChange = (event) => {
     const { name, value, type, checked } = event.target;
-    console.log(formData);
     setFormData({
       ...formData,
       [name]: type === "checkbox" ? checked : value,
@@ -46,9 +46,14 @@ const Anmeldung = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    sendAnmeldung(formData);
 
-    // console.log("Form Data:", formData);
+    if (!formData.gruppe) {
+      toastWarnNotify("Das Feld 'Gruppe' ist erforderlich!");
+    } else if (!formData.insuranceType) {
+      toastWarnNotify("Das Feld 'Versicherungstyp' ist erforderlich!");
+    } else {
+      sendAnmeldung(formData);
+    }
   };
   return (
     <form className={css.container} onSubmit={handleSubmit}>

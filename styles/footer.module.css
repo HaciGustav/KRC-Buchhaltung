@@ -22,11 +22,13 @@
 .footer_section h2 {
   margin-bottom: 5px;
   font-size: 18px;
+  font-size: 1rem;
 }
 
 .footer_section p {
   margin-bottom: 5px;
   line-height: 1.6;
+  font-size: 0.8rem;
 }
 
 .footer_section a {
@@ -38,6 +40,7 @@
   background-color: #3d1626;
   padding: 10px 0;
   text-align: center;
+  font-size: 0.7rem;
 }
 
 .footer_bottom p {

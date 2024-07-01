@@ -136,7 +136,6 @@ const Abmeldung = () => {
                   checked={formData.holidayUsed || false}
                   onChange={handleChange}
                   name="holidayUsed"
-                  required
                 />
               }
               label="Urlaub in Zeit Konsumiert"

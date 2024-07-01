@@ -58,6 +58,9 @@ const Layout = ({ children }) => {
               width: "100%",
               display: "flex",
               justifyContent: "flex-start",
+              alignItems: "center",
+              columnGap: "10px",
+              color: "#fff",
             }}
           >
             <IconButton onClick={() => setOpen(!open)}>
@@ -67,6 +70,36 @@ const Layout = ({ children }) => {
                 <MenuIcon sx={{ color: "#fff" }} />
               )}
             </IconButton>
+
+            <Link
+              href={"/"}
+              style={{
+                textDecoration: "none",
+                backgroundColor: "#591036",
+                display: "grid",
+                placeItems: "center",
+                width: "2.5rem",
+                height: "2.5rem",
+                borderRadius: "25%",
+              }}
+            >
+              <img style={{ width: "2rem" }} src="/assets/logo.svg" />
+            </Link>
+
+            <h3 style={{ fontSize: "0.7rem", textAlign: "center" }}>
+              <span
+                style={{
+                  fontSize: "0.7rem",
+                  // display: "block",
+                  // width: "100%",
+                  padding: "0",
+                }}
+              >
+                {" "}
+                KRC{" "}
+              </span>{" "}
+              Buchhaltungskanzlei KG
+            </h3>
           </div>
         )}
 

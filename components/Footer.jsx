@@ -8,7 +8,7 @@ const Footer = () => {
           <h2>KRC</h2>
           <p>Buchhaltungskanzlei KG</p>
           <p>
-            Großmarktstraße 4
+            Großmarktstraße 4,
             <br />
             1230 Wien
           </p>
@@ -22,9 +22,9 @@ const Footer = () => {
         <div className={css.footer_section}>
           <h2>ÖFFNUNGSZEITEN</h2>
           <p>
-            Mo-Do: 09:00-17:00
+            Mo-Do: 09:00-14:00
             <br />
-            Fr: 09:00-14:00
+            Fr: 09:00-12:00
           </p>
         </div>
       </div>
