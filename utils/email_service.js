@@ -232,8 +232,8 @@ export const createMail = (formType, receiver, subject, text, formData) => {
       <div class="header">
        <img src="https://raw.githubusercontent.com/HaciGustav/KRC-Buchhaltung/main/public/assets/logo.png" alt="Company Logo">
        <div class="header-title-wrapper" >
-        <h4>Empfangsbestätigung</h4>
-        <h5>${formData.employer}</h5>
+        <h2>Empfangsbestätigung</h2>
+      
       </div>
       </div>
       <div class="content">
@@ -312,8 +312,8 @@ export const createMail = (formType, receiver, subject, text, formData) => {
       <div class="header">
        <img src="https://raw.githubusercontent.com/HaciGustav/KRC-Buchhaltung/main/public/assets/logo.png" alt="Company Logo">
        <div class="header-title-wrapper" >
-        <h4>Empfangsbestätigung</h4>
-        <h5>${formData.employer}</h5>
+        <h2>Empfangsbestätigung</h2>
+      
       </div>
       </div>
       <div class="content">
@@ -371,8 +371,8 @@ export const createMail = (formType, receiver, subject, text, formData) => {
      <div class="header">
       <img src="https://raw.githubusercontent.com/HaciGustav/KRC-Buchhaltung/main/public/assets/logo.png" alt="Company Logo">
      <div class="header-title-wrapper" >
-        <h4>Empfangsbestätigung</h4>
-        <h5>${formData.employer}</h5>
+        <h2>Empfangsbestätigung</h2>
+      
       </div>
      </div>
      <div class="content">
@@ -453,8 +453,8 @@ export const createMail = (formType, receiver, subject, text, formData) => {
       <div class="header">
        <img src="https://raw.githubusercontent.com/HaciGustav/KRC-Buchhaltung/main/public/assets/logo.png" alt="Company Logo">
        <div class="header-title-wrapper" >
-        <h4>Empfangsbestätigung</h4>
-        <h5>${formData.employer}</h5>
+        <h2>Empfangsbestätigung</h2>
+      
       </div>
       </div>
       <div class="content">
