@@ -153,6 +153,9 @@ table, td { color: #000000; } </style>
         padding: 10px 0;
         border-bottom: 1px solid #ddd;
       }
+        .header-title-wrapper{
+        width:100%
+        }
  .header img {
         width:100px;
         height:90px;
@@ -228,7 +231,10 @@ export const createMail = (formType, receiver, subject, text, formData) => {
     <div class="container">
       <div class="header">
        <img src="https://raw.githubusercontent.com/HaciGustav/KRC-Buchhaltung/main/public/assets/logo.png" alt="Company Logo">
-        <h1>Empfangsbestätigung</h1>
+       <div class="header-title-wrapper" >
+        <h4>Empfangsbestätigung</h4>
+        <h5>${formData.employer}</h5>
+      </div>
       </div>
       <div class="content">
         <p>Sehr geehrte Damen und Herren,</p>
@@ -305,7 +311,10 @@ export const createMail = (formType, receiver, subject, text, formData) => {
     <div class="container">
       <div class="header">
        <img src="https://raw.githubusercontent.com/HaciGustav/KRC-Buchhaltung/main/public/assets/logo.png" alt="Company Logo">
-        <h1>Empfangsbestätigung</h1>
+       <div class="header-title-wrapper" >
+        <h4>Empfangsbestätigung</h4>
+        <h5>${formData.employer}</h5>
+      </div>
       </div>
       <div class="content">
         <p>Sehr geehrte Damen und Herren,</p>
@@ -361,7 +370,10 @@ export const createMail = (formType, receiver, subject, text, formData) => {
    <div class="container">
      <div class="header">
       <img src="https://raw.githubusercontent.com/HaciGustav/KRC-Buchhaltung/main/public/assets/logo.png" alt="Company Logo">
-       <h1>Empfangsbestätigung</h1>
+     <div class="header-title-wrapper" >
+        <h4>Empfangsbestätigung</h4>
+        <h5>${formData.employer}</h5>
+      </div>
      </div>
      <div class="content">
        <p>Sehr geehrte Damen und Herren,</p>
@@ -440,7 +452,10 @@ export const createMail = (formType, receiver, subject, text, formData) => {
     <div class="container">
       <div class="header">
        <img src="https://raw.githubusercontent.com/HaciGustav/KRC-Buchhaltung/main/public/assets/logo.png" alt="Company Logo">
-        <h1>Empfangsbestätigung</h1>
+       <div class="header-title-wrapper" >
+        <h4>Empfangsbestätigung</h4>
+        <h5>${formData.employer}</h5>
+      </div>
       </div>
       <div class="content">
         <p>Sehr geehrte Damen und Herren,</p>
@@ -494,8 +509,8 @@ export const createMail = (formType, receiver, subject, text, formData) => {
   else if (formType === "storno") template = mailBase(stornoBody);
 
   const message = {
-    from: "office@krc-k.at",
-    to: [receiver, "office@krc-k.at", "lohn1@krc-k.at"],
+    from: "donotreply-formular@krc-k.at",
+    to: [receiver, "donotreply-formular@krc-k.at", "lohn1@krc-k.at"],
     subject: subject,
     text: text,
     html: template,

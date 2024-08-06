@@ -32,6 +32,8 @@ const validationScheme = {
 
 const Anmeldung = () => {
   const [formData, setFormData] = useState({});
+  const [submitButtonDisabled, setSubmitButtonDisabled] = useState(false);
+
   const screenSmall = useMediaQuery("(max-width:500px)");
 
   const { sendAnmeldung } = useFormCalls();
@@ -52,8 +54,10 @@ const Anmeldung = () => {
     } else if (!formData.insuranceType) {
       toastWarnNotify("Das Feld 'Versicherungstyp' ist erforderlich!");
     } else {
-      sendAnmeldung(formData);
+      setSubmitButtonDisabled(true);
+      sendAnmeldung(formData).then(() => setSubmitButtonDisabled(false));
     }
+    console.log(submitButtonDisabled);
   };
   return (
     <form className={css.container} onSubmit={handleSubmit}>
@@ -359,7 +363,12 @@ const Anmeldung = () => {
         </Grid>
 
         <Grid item xs={12}>
-          <Button type="submit" variant="contained" color="primary">
+          <Button
+            disabled={submitButtonDisabled}
+            type="submit"
+            variant="contained"
+            color="primary"
+          >
             Senden
           </Button>
         </Grid>

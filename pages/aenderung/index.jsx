@@ -24,6 +24,7 @@ import { toastWarnNotify } from "@/utils/ToastNotify";
 
 const Aenderung = () => {
   const [formData, setFormData] = useState({});
+  const [submitButtonDisabled, setSubmitButtonDisabled] = useState(false);
   const { sendAenderung } = useFormCalls();
   const screenSmall = useMediaQuery("(max-width:500px)");
 
@@ -38,7 +39,10 @@ const Aenderung = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    sendAenderung(formData);
+
+    setSubmitButtonDisabled(true);
+
+    sendAenderung(formData).then(() => setSubmitButtonDisabled(false));
   };
   return (
     <form className={css.container} onSubmit={handleSubmit}>
@@ -322,7 +326,12 @@ const Aenderung = () => {
         </Grid>
 
         <Grid item xs={12}>
-          <Button type="submit" variant="contained" color="primary">
+          <Button
+            disabled={submitButtonDisabled}
+            type="submit"
+            variant="contained"
+            color="primary"
+          >
             Senden
           </Button>
         </Grid>

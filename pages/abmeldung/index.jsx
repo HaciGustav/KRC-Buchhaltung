@@ -24,13 +24,17 @@ import useFormCalls from "@/hooks/useFormCalls";
 
 const Abmeldung = () => {
   const [formData, setFormData] = useState({});
+  const [submitButtonDisabled, setSubmitButtonDisabled] = useState(false);
   const { sendAbmeldung } = useFormCalls();
 
   const screenSmall = useMediaQuery("(max-width:500px)");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    sendAbmeldung(formData);
+
+    setSubmitButtonDisabled(true);
+
+    sendAbmeldung(formData).then(() => setSubmitButtonDisabled(false));
 
     // console.log("Form Data:", formData);
   };
@@ -183,7 +187,12 @@ const Abmeldung = () => {
         </Grid>
 
         <Grid item xs={12}>
-          <Button type="submit" variant="contained" color="primary">
+          <Button
+            disabled={submitButtonDisabled}
+            type="submit"
+            variant="contained"
+            color="primary"
+          >
             Senden
           </Button>
         </Grid>

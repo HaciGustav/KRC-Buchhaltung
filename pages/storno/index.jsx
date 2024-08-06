@@ -21,13 +21,18 @@ import useFormCalls from "@/hooks/useFormCalls";
 
 const Storno = () => {
   const [formData, setFormData] = useState({});
+  const [submitButtonDisabled, setSubmitButtonDisabled] = useState(false);
+
   const { sendStorno } = useFormCalls();
 
   const screenSmall = useMediaQuery("(max-width:500px)");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    sendStorno(formData);
+
+    setSubmitButtonDisabled(true);
+
+    sendStorno(formData).then(() => setSubmitButtonDisabled(false));
 
     // console.log("Form Data:", formData);
   };
@@ -161,7 +166,12 @@ const Storno = () => {
         </Grid>
 
         <Grid item xs={12}>
-          <Button type="submit" variant="contained" color="primary">
+          <Button
+            disabled={submitButtonDisabled}
+            type="submit"
+            variant="contained"
+            color="primary"
+          >
             Senden
           </Button>
         </Grid>
