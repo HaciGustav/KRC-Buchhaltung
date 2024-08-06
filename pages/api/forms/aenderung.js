@@ -24,10 +24,10 @@ const allowCors = (fn) => async (req, res) => {
 
 const handler = (req, res) => {
   console.log(req.body);
-
-  const subject = `Änderung: ${req.body.employer} - ${formData.firstnameDN} ${formData.lastnameDN}`;
   const receiver = req.body.email;
   const formData = req.body;
+
+  const subject = `Änderung: ${req.body.employer} - ${formData.firstnameDN} ${formData.lastnameDN}`;
   const message = createMail(
     "aenderung",
     receiver,
