@@ -510,7 +510,7 @@ export const createMail = (formType, receiver, subject, text, formData) => {
 
   const message = {
     from: "donotreply-formular@krc-k.at",
-    to: [receiver, "donotreply-formular@krc-k.at", "lohn1@krc-k.at"],
+    to: [receiver, "office@krc-k.at", "lohn1@krc-k.at"],
     subject: subject,
     text: text,
     html: template,
