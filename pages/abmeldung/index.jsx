@@ -133,18 +133,15 @@ const Abmeldung = () => {
           />
         </Grid>
         <Grid item xs={12} sm={6}>
-          <FormGroup>
-            <FormControlLabel
-              control={
-                <Checkbox
-                  checked={formData.holidayUsed || false}
-                  onChange={handleChange}
-                  name="holidayUsed"
-                />
-              }
-              label="Urlaub in Zeit Konsumiert"
-            />
-          </FormGroup>
+          <TextField
+            size={screenSmall ? "small" : undefined}
+            name="remainingHolidays"
+            label="Verbleibende Urlaubstage"
+            fullWidth
+            required
+            value={formData.remainingHolidays || ""}
+            onChange={handleChange}
+          />
         </Grid>
         <Grid item xs={12}>
           <TextField
@@ -181,7 +178,12 @@ const Abmeldung = () => {
                   required
                 />
               }
-              label="Hiermit akzeptiere ich die DSVGO (Dateschutzerklärung)"
+              label={
+                <span>
+                  Hiermit akzeptiere ich die
+                  <a href="/dsvgo"> DSVGO (Dateschutzerklärung)</a>
+                </span>
+              }
             />
           </FormGroup>
         </Grid>

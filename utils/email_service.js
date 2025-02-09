@@ -255,6 +255,9 @@ export const createMail = (formType, receiver, subject, text, formData) => {
           <p><strong>Versicherungsnummer:</strong> ${
             formData.insuranceNumberDN || ""
           }</p>
+          <p><strong>Familienzustand:</strong> ${
+            formData.maritalStatus || ""
+          }</p>
           <p><strong>Geschlecht:</strong> ${formData.gender || ""}</p>
           <p><strong>Adresse:</strong> ${formData.address || ""}</p>
           <p><strong>PLZ Ort:</strong> ${formData.zip || ""} ${
@@ -280,6 +283,9 @@ export const createMail = (formType, receiver, subject, text, formData) => {
           }</p>
           <p><strong>Monatsgehalt in Euro/Brutto:</strong> ${
             formData.salary || ""
+          } </p>
+          <p><strong>Kollektivvertrag:</strong> ${
+            formData.minWage ? "Ja" : "Nein" || ""
           } </p>
         </div>
 
@@ -340,8 +346,8 @@ export const createMail = (formType, receiver, subject, text, formData) => {
         <div class="data-section">
           <h2>ANGABEN ZUM BESCHÄFTIGUNGSVERHÄLTNIS</h2>
           <p><strong>Abmeldedatum:</strong> ${formData.lastWorkDay || ""}</p> 
-          <p><strong>Urlaub in Zeit konsumiert:</strong> ${
-            formData.holidayUsed ? "Ja" : "Nein"
+          <p><strong>Verbleibende Urlaubstage:</strong> ${
+            formData.holidayUsed
           } </p>
           <p><strong>Kündigungsart:</strong> ${
             formData.terminationType || ""

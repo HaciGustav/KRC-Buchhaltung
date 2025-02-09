@@ -31,7 +31,7 @@ const Footer = () => {
       <div className={css.footer_bottom}>
         <p>© Copyright - KRC Buchhaltung</p>
         <p>
-          <a href="#">Impressum</a> |<a href="#">Datenschutz</a>
+          <a href="/dsvgo">Datenschutz</a>
         </p>
       </div>
     </footer>

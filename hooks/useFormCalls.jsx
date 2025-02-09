@@ -5,17 +5,24 @@ import { useRouter } from "next/navigation";
 const useFormCalls = () => {
   const router = useRouter();
   const BASE_URL = "https://krc-buchhaltung.vercel.app";
-  // const BASE_URL = "http://localhost:3000";
+  //const BASE_URL = "http://localhost:3000";
   const sendAnmeldung = async (formData) => {
+    const postFormData = new FormData();
+
+    for (const key in formData) {
+      postFormData.append(key, formData[key]);
+    }
     try {
       const data = await axios.post(
         BASE_URL + "/api/forms/anmeldung",
-        formData
+        postFormData,
+        { headers: { "Content-Type": "multipart/from-data" } }
       );
+
       toastSuccessNotify(`Eingabe erfolgreich gesendet`);
 
       setTimeout(() => {
-        router.push("/");
+        // router.push("/");
       }, 1000);
     } catch (error) {
       console.log(error);
